@@ -5,7 +5,7 @@ interface CheckboxProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
   id: string;
-  value?: string; // Include the value prop
+  value?: string;
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({
@@ -16,7 +16,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
   value,
 }) => {
   const handleDivClick = () => {
-    // Simulate a click event to trigger onChange
     const event = {
       target: { checked: !checked, value: value ?? "" },
     } as unknown as React.ChangeEvent<HTMLInputElement>;
@@ -32,7 +31,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         <label
           htmlFor={id}
           className="text-gray-700 cursor-pointer font-montserrat"
-          onClick={(e) => e.stopPropagation()} // Prevent div click when label is clicked
+          onClick={(e) => e.stopPropagation()}
         >
           {label}
         </label>
@@ -40,9 +39,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
       <input
         type="checkbox"
         id={id}
-        value={value} // Set the value for the checkbox input
+        value={value}
         checked={checked}
-        onChange={onChange} // Directly pass the onChange prop
+        onChange={onChange}
         className="appearance-none absolute h-0 w-0"
       />
       <span
