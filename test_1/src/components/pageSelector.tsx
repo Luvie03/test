@@ -9,19 +9,17 @@ const PageSelector: React.FC = () => {
 
   const handleSelectAll = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      setSelectedPages(pages); // Select all pages
+      setSelectedPages(pages);
     } else {
-      setSelectedPages([]); // Deselect all pages
+      setSelectedPages([]);
     }
   };
 
   const handlePageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const page = event.target.value;
     if (selectedPages.includes(page)) {
-      // If the page is already selected, remove it from the array
       setSelectedPages(selectedPages.filter((p) => p !== page));
     } else {
-      // If the page is not selected, add it to the array
       setSelectedPages([...selectedPages, page]);
     }
   };
@@ -44,7 +42,7 @@ const PageSelector: React.FC = () => {
           checked={selectedPages.includes(page)}
           onChange={handlePageChange}
           label={page}
-          value={page} // Pass the page name as the value
+          value={page}
         />
       ))}
       <hr className="my-2 border-t border-gray-300 mb-4" />
